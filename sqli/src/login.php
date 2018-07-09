@@ -4,7 +4,7 @@
 
     <div>
     
-        <form>
+        <form method="post">
             <input type="text" name="login" />
             <input type="password" name="pass" />
             <input type="submit" value="Login" />
@@ -29,7 +29,7 @@
 
             $query = "SELECT login, pass FROM user WHERE login = '$login' AND pass = '$pass';";
 
-            print_r($query);
+            // print_r($query);
 
             echo '<br /><br />';
 
@@ -44,7 +44,8 @@
 
                 /* fetch values */
                 while (mysqli_stmt_fetch($stmt)) {
-                    printf ("Logged as %s (%s)\n", $login, $pass);
+                    echo "Logged";
+                    //printf ("Logged as %s (%s)\n", $login, $pass);
                 }
 
                 /* close statement */
