@@ -10,7 +10,7 @@
         $login = ($_GET['login']);
         $pass = ($_GET['pass']);
 
-        if(!$_GET['noas']) {
+        if($_COOKIE['as']) {
             $login = addslashes($login);
             $pass = addslashes($pass);
         }
