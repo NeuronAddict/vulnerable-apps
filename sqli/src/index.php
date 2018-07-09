@@ -21,8 +21,6 @@
 
         print_r($query);
 
-
-
         echo '<br /><br />';
 
         $stmt = mysqli_prepare($mysqli, $query);
