@@ -34,7 +34,7 @@
 
             /* fetch values */
             while (mysqli_stmt_fetch($stmt)) {
-                printf ("%s (%s)\n", $login, $pass);
+                printf ("Logged as %s (%s)\n", $login, $pass);
             }
 
             /* close statement */
