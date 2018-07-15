@@ -7,8 +7,7 @@ RUN apt-get update && apt-get install -y libpng-dev unzip wget \
 
 RUN docker-php-ext-install mysqli \
     && docker-php-ext-install gd \
-    && a2enmod rewrite \
-    && service apache2 restart
+    && a2enmod rewrite
 
 RUN cp -r /tmp/BigTree-CMS/* /var/www/html
 
