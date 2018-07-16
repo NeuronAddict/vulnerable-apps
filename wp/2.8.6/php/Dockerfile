@@ -8,6 +8,4 @@ RUN apt-get update && apt-get install -y tar wget \
 RUN docker-php-ext-install mysql && a2enmod rewrite
 
 COPY wp-config.php /var/www/html/wp/wp-config.php
-
-
-
+COPY datetime.ini /usr/local/etc/php/conf.d/
