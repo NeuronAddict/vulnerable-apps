@@ -12,6 +12,7 @@ services:
     - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
     - ./mysql/conf.d:/etc/mysql/conf.d
     - mysql-log:/var/log/mysql
+    - ./src:/var/www/html
   web:
     build: 
       context: php
