@@ -2,7 +2,7 @@ version: '2'
 
 services:
   mysql:
-    image: mysql:5.5.60
+    image: pyriand3r/i386-mysql:5.7
     environment:
     - MYSQL_RANDOM_ROOT_PASSWORD=yes
     - MYSQL_USER=mysql
@@ -10,6 +10,7 @@ services:
     - MYSQL_DATABASE=db
     volumes:
     - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+    - ./mysql/conf.d:/etc/mysql/conf.d
   web:
     build: 
       context: php
