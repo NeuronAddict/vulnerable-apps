@@ -1,2 +1,2 @@
 [mysqld]
-secure_file_priv=/etc
+secure_file_priv=/
