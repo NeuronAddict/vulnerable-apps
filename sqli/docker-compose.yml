@@ -11,6 +11,7 @@ services:
     volumes:
     - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
     - ./mysql/conf.d:/etc/mysql/conf.d
+    - mysql-log:/var/log/mysql
   web:
     build: 
       context: php
@@ -19,3 +20,7 @@ services:
     ports:
     - 8181:80
     
+
+volumes:
+  mysql-log:
+    driver: local

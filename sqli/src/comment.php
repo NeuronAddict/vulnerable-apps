@@ -4,11 +4,12 @@
 <p>note : to see log, set a cookie, get or post log=1</p>
 
 <a href="/comment.php?id=1">/comment.php?id=1</a>
+
 <?php
 
 function log_($str) {
 	if ($_REQUEST['log']=='1') {
-		echo "<p>$str</p>";	
+		echo "<p>$str</p>\n";	
 	}
 }
 
@@ -34,9 +35,12 @@ if(isset($_GET['id'])) {
 	
 	if($res) {
 		$res->data_seek(0);
-		while ($row = $res->fetch_assoc()) {
+		if ($row = $res->fetch_assoc()) {
 			echo "<p>comment " . $row['id'] . "</p><h2>" . $row['name'] . "</h2><p>" . $row['text'] . "</p>";
 		}
+        else {
+            log_("[-] No results");
+        }
     }
     else {
         log_( "[-] ". $mysqli->error);
