@@ -2,6 +2,9 @@
 
 <body>
 
+
+    <?php include 'header.php' ?>
+
     <div>
     
         <form method="post">
