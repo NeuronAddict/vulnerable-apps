@@ -1,9 +1,5 @@
 <html>
-
 <body>
-    <div>
-        <li><a href="reflected.php">reflected</a></li>
-    </div>
+  <?php include 'header.php' ?>
 </body>
-
 </html>
