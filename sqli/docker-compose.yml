@@ -19,7 +19,7 @@ services:
     volumes:
     - ./src:/var/www/html
     ports:
-    - 8181:80
+    - 127.0.0.1:8181:80
     
 
 volumes:
