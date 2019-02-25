@@ -1,0 +1,9 @@
+version: '2'
+
+services:
+  haraka:
+    build: 
+      context: docker
+    ports:
+    - 127.0.0.1:25:25
+    
