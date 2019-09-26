@@ -8,4 +8,5 @@
     <li><a href="comments.php">comments</a></li>
     <li><a href="/clickjacking/admin.php">clickjacking : admin</a></li>
     <li><a href="/clickjacking/index.php">clickjacking : index</a></li>
+    <li><a href="logout.php">Logout</a></li>
 </div>
