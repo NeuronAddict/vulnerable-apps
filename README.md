@@ -1,4 +1,4 @@
-# Vulnerable-webapps
+# Vulnerable-apps
 
 Some vulnerables docker apps to various vulnerabilites.
 
