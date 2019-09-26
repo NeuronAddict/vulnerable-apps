@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <html>
 
 <body>
@@ -47,6 +48,7 @@
                 /* fetch values */
                 while (mysqli_stmt_fetch($stmt)) {
                     echo "Logged";
+                    $_SESSION['logged'] = true;
                     //printf ("Logged as %s (%s)\n", $login, $pass);
                 }
 
