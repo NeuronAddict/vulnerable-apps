@@ -29,7 +29,7 @@ if( isset($_REQUEST['login']) && $_REQUEST['pass']) {
             /* fetch values */
             while (mysqli_stmt_fetch($stmt)) {
                 $_SESSION['logged'] = true;
-
+                setcookie("personal", 'secret data?');
             }
 
             /* close statement */
