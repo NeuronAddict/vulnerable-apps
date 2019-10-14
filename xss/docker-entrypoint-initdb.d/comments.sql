@@ -1,7 +1,7 @@
 CREATE TABLE comments(
     id MEDIUMINT NOT NULL AUTO_INCREMENT,
     name CHAR(30) NOT NULL,
-    text CHAR(60) NOT NULL,
+    text TEXT NOT NULL,
     PRIMARY KEY (id)
 );
 
