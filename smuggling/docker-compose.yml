@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+  tomcat:
+    build:
+      context: tomcat
+  web:
+    image: httpd
+    volumes:
+      - ./httpd/conf:/usr/local/apache2/conf
+    ports:
+      - 127.0.0.1:8181:80
+
