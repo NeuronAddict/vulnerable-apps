@@ -7,7 +7,7 @@ services:
     ports:
       - 127.0.0.1:8180:8080
   web:
-    image: httpd
+    image: httpd:2.4.12
     volumes:
       - ./httpd/conf:/usr/local/apache2/conf
       - ./httpd/vhosts.d:/usr/local/apache2/vhosts.d
