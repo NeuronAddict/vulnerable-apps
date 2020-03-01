@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  httpd:
+    build:
+      context: httpd
+    ports:
+    - 443:443
+    - 80:80
+
+  tomcat:
+    image: tomcat:9.0.30
+    ports:
+    - 8009:8009 # the problem is here
