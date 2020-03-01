@@ -40,4 +40,11 @@ public class XxeController {
         Unmarshaller unmarshaller = jc.createUnmarshaller();
         return (Message) unmarshaller.unmarshal(xsr);
     }
+
+    @PostMapping(value = "/", consumes = "text/xml")
+    public Message parse(@RequestBody Message xml) throws JAXBException, XMLStreamException {
+        log.info("$$" + xml + "$$");
+        return xml;
+    }
+
 }
