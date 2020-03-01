@@ -5,10 +5,12 @@ services:
     build:
       context: httpd
     ports:
-    - 443:443
-    - 80:80
+    - 127.0.0.1:80:80
+    depends_on:
+      - tomcat
 
   tomcat:
-    image: tomcat:9.0.30
+    build:
+      context: tomcat
     ports:
-    - 8009:8009 # the problem is here
+    - 127.0.0.1:8009:8009
