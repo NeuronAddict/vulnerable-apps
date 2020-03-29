@@ -46,14 +46,12 @@ if( isset($_REQUEST['login']) && $_REQUEST['pass']) {
 
 <body>
 
-    <?php include('header.php'); ?>
-
     <div>
     
         <form method="post">
-            <input type="text" name="login" />
-            <input type="password" name="pass" />
-            <input type="submit" value="Login" />
+            <label>Login:</label><input type="text" name="login" />
+            <label>Login:</label><input type="password" name="pass" />
+            <input class="btn" type="submit" value="Login" />
         </form>
     
     </div>

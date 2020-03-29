@@ -1,12 +1,14 @@
+<div class="row">
 <?php
 
 $logged = isset($_SESSION['logged']) && $_SESSION['logged'];
 
 if($logged) {
-    echo '<p>You are logged !</p>';
+    echo '<p class="logged-info col offset-s1">You are logged !</p>';
 }
 else {
-    echo '<p>not logged :/</p>';
+    echo '<p class="logged-info col offset-s1">not logged :/</p>';
 }
 
 ?>
+</div>
