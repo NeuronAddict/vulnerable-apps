@@ -9,13 +9,18 @@
 </head>
 <body>
     <div>
-        <li><a href="reflected.php?param=VALUE">Try here</a></li>
+        <li><a href="index.php?page=reflected&param=VALUE">Simple value</a></li>
+        <li><a href="index.php?page=reflected&param=<script>alert(1)</script>">alert</a></li>
     </div>
-    <p>value : <?php echo $_GET['param']; ?></p>
+    <p>This value is présent on GET[param] : <?php
+        if (isset($_GET['param']))
+            echo $_GET['param'];
+
+        ?></p>
     
     
     <div>
-        <p>Some content</p>
+        <p>There is some content here</p>
         <img src="" />
     </div>
 </body>

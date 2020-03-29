@@ -1,6 +1,5 @@
 <?php
 session_start();
-require 'header.php';
 
 $mysqli = mysqli_connect('mysql', 'mysql', 'mysql', 'db');
 
@@ -39,19 +38,16 @@ mysqli_close($mysqli);
 
 
 ?>
-<html>
 
-<body>
-
+<h5>Send a message to the community</h5>
+<div class="divider"></div>
 
 <?php echo $data; ?>
 
 <form method="post">
 <p><label>Name:</label> <input type="text" name="name"></p>
-<p><label>Text:</label> <input type="text" name="text"></p>
-<p><input type="submit" value="Ok"></p>
+<p><label>Message:</label> <input type="text" name="text"></p>
+<p><input type="submit" class="btn" value="Ok"></p>
 </form>
-</body>
-</html>
 
 
