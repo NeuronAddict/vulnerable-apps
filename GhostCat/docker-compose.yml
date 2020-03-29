@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  httpd:
+    build:
+      context: httpd
+    ports:
+    - 127.0.0.1:80:80
+    depends_on:
+      - tomcat
+
+  tomcat:
+    build:
+      context: tomcat
+    ports:
+    - 127.0.0.1:8009:8009
