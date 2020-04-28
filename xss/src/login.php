@@ -1,6 +1,9 @@
 <?php
 
-session_start();
+if(!isset($_SESSION))
+{
+    session_start();
+}
 
 if( isset($_REQUEST['login']) && $_REQUEST['pass']) {
     $login = ($_REQUEST['login']);
@@ -41,6 +44,7 @@ if( isset($_REQUEST['login']) && $_REQUEST['pass']) {
         mysqli_close($mysqli);
     }
 }
+
 ?>
 <html>
 

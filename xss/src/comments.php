@@ -1,5 +1,8 @@
 <?php
-session_start();
+if(!isset($_SESSION))
+{
+    session_start();
+}
 
 $mysqli = mysqli_connect('mysql', 'mysql', 'mysql', 'db');
 
