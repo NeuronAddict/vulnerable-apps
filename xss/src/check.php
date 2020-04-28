@@ -1,7 +1,9 @@
 <div class="row">
 <?php
 
-$logged = isset($_SESSION['logged']) && $_SESSION['logged'];
+session_start();
+
+$logged = isset($_SESSION['logged']);
 
 if($logged) {
     echo '<p class="logged-info col offset-s1">You are logged !</p>';
