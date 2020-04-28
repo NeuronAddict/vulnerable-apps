@@ -11,6 +11,7 @@
             <li><a href="index.php?page=reflected">reflected</a></li>
             <li><a href="index.php?page=login">login</a></li>
             <li><a href="index.php?page=comments">comments</a></li>
+            <li><a href="index.php?page=admin">admin</a></li>
 <!--            <li><a href="/clickjacking/admin.php">clickjacking : admin</a></li>-->
 <!--            <li><a href="/clickjacking/index.php">clickjacking : index</a></li>-->
             <li><a href="logout.php">Logout</a></li>
