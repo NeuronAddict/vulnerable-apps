@@ -1,6 +1,7 @@
 <?php
 
 require '../../user.class.php';
+require '../../cors.php';
 
 if(!isset($_SESSION))
 {
