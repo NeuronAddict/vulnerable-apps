@@ -1,11 +1,13 @@
 <?php
 
+require '../../user.class.php';
+
 if(!isset($_SESSION))
 {
     session_start();
 }
 
-if(isset($_SESSION['logged']) && $_SESSION['logged']) {
+if(isset($_SESSION['logged']) && $_SESSION['logged'] && $_SESSION['user']->isAdmin()) {
     $mysqli = mysqli_connect('mysql', 'mysql', 'mysql', 'db');
 
     $query = "SELECT login, pass FROM user";
@@ -37,6 +39,7 @@ if(isset($_SESSION['logged']) && $_SESSION['logged']) {
     mysqli_close($mysqli);
 
     header('Content-Type: application/json');
+    add_cors_header();
     echo json_encode($data);
 
 }
