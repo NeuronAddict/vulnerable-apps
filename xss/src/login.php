@@ -1,5 +1,7 @@
 <?php
 
+require 'user.class.php';
+
 if(!isset($_SESSION))
 {
     session_start();
@@ -32,6 +34,7 @@ if( isset($_REQUEST['login']) && $_REQUEST['pass']) {
             /* fetch values */
             while (mysqli_stmt_fetch($stmt)) {
                 $_SESSION['logged'] = true;
+                $_SESSION['user'] = new user($login);
                 setcookie("personal", 'secret data?');
             }
 
