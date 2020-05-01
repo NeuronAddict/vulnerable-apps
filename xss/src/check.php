@@ -3,7 +3,7 @@
 
 session_start();
 
-$logged = isset($_SESSION['logged']);
+$logged = isset($_SESSION['user']);
 
 if($logged) {
     echo '<p class="logged-info col offset-s1">You are logged !</p>';

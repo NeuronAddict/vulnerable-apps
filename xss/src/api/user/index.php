@@ -8,7 +8,8 @@ if(!isset($_SESSION))
     session_start();
 }
 
-if(isset($_SESSION['logged']) && $_SESSION['logged'] && $_SESSION['user']->isAdmin()) {
+if(isset($_SESSION['user']) && $_SESSION['user']->isAdmin()) {
+
     $mysqli = mysqli_connect('mysql', 'mysql', 'mysql', 'db');
 
     $query = "SELECT login, pass FROM user";

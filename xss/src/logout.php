@@ -5,7 +5,7 @@ if(!isset($_SESSION))
     session_start();
 }
 
-$_SESSION['logged'] = array();
+$_SESSION['user'] = array();
 
 require 'header.php';
 
