@@ -1,3 +1,6 @@
+<?php
+    require_once 'cors.php';
+?>
 <nav class="hide-on-small">
     <div class="nav-wrapper">
         <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
@@ -23,5 +26,6 @@
 <div>
     <?php require 'check.php'; ?>
 
+    <?php add_cors_header(); ?>
 
 </div>
