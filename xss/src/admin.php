@@ -20,20 +20,19 @@ if (!isset($_SESSION)) {
 
 <script>
 
-    function change_password(user) {
-        var password = prompt("Enter new password");
-        fetch('/api/user/change_password.php', {
+    function change_mail(user) {
+        var mail = prompt("Enter new mail");
+        fetch('/api/user/change_mail.php', {
                 method: 'POST',
                 credentials: 'include',
                 body: JSON.stringify({
                     "login": user,
-                    "password": password,
-                    "confirm": password
+                    "mail": mail
                 })
             }
         )
             .then(function () {
-                alert("password changed !")
+                alert("mail changed !")
             })
             .catch(function () {
                 alert("erreur, see logs...");
@@ -47,7 +46,7 @@ if (!isset($_SESSION)) {
         .then(json => {
             html = '';
             for (let i = 0; i < json.length; i++) {
-                html += '<tr><td>' + json[i].login + '</td><td>' + json[i].mail + '</td><td><a onclick="change_password(\'' + json[i].login + '\')" class="btn">Change password</a></td></tr>';
+                html += '<tr><td>' + json[i].login + '</td><td>' + json[i].mail + '</td><td><a onclick="change_mail(\'' + json[i].login + '\')" class="btn">Change mail</a></td></tr>';
             }
             $('#content').html(html);
         })
