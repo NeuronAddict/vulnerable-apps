@@ -35,7 +35,8 @@ if( isset($_REQUEST['login']) && $_REQUEST['pass']) {
             while (mysqli_stmt_fetch($stmt)) {
                 $_SESSION['logged'] = true;
                 $_SESSION['user'] = new user($login);
-                setcookie("personal", 'secret data?');
+                //setcookie("personal", 'secret data?');
+                header('Location: /index.php?page=admin');
             }
 
             /* close statement */
