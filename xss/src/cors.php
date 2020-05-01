@@ -16,7 +16,7 @@ function add_cors_header() {
 
     switch ($mode) {
         case 1:
-            header('Access-Control-Allow-Origin: http://localhost:8181');
+            header('Access-Control-Allow-Origin: http://attacker.local:8181');
             header('Access-Control-Allow-Credentials: true');
             break;
 
