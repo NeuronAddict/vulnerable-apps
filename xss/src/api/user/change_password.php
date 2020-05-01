@@ -1,11 +1,22 @@
 <?php
 
+require '../../user.class.php';
+require '../../cors.php';
+
 if(!isset($_SESSION))
 {
     session_start();
 }
 
-if(isset($_SESSION['logged']) && $_SESSION['logged']) {
+if($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    header ("Access-Control-Allow-Methods: POST, OPTIONS");
+    header ("Access-Control-Allow-Headers: Content-Type");
+    add_cors_header();
+    return;
+}
+
+
+if(isset($_SESSION['user']) && $_SESSION['user']->isAdmin() && $_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $json = file_get_contents('php://input');
 
