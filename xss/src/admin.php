@@ -7,6 +7,12 @@ if (!isset($_SESSION)) {
 ?>
 
 <table>
+    <thead>
+        <tr>
+            <th>username</th>
+            <th>mail</th>
+        </tr>
+    </thead>
     <tbody id="content">
 
     </tbody>
@@ -41,7 +47,7 @@ if (!isset($_SESSION)) {
         .then(json => {
             html = '';
             for (let i = 0; i < json.length; i++) {
-                html += '<tr><td>username</td><td>' + json[i].login + '</td><td><a onclick="change_password(\'' + json[i].login + '\')" class="btn">Change password</a></td></tr>';
+                html += '<tr><td>' + json[i].login + '</td><td>' + json[i].mail + '</td><td><a onclick="change_password(\'' + json[i].login + '\')" class="btn">Change password</a></td></tr>';
             }
             $('#content').html(html);
         })

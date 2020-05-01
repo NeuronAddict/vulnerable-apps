@@ -10,9 +10,10 @@ if(!isset($_SESSION))
 
 if(isset($_SESSION['user']) && $_SESSION['user']->isAdmin()) {
 
+    // dont do this !
     $mysqli = mysqli_connect('mysql', 'mysql', 'mysql', 'db');
 
-    $query = "SELECT login, pass FROM user";
+    $query = "SELECT login, mail FROM user";
 
     $stmt = mysqli_prepare($mysqli, $query);
 
@@ -22,13 +23,13 @@ if(isset($_SESSION['user']) && $_SESSION['user']->isAdmin()) {
         mysqli_stmt_execute($stmt);
 
         /* bind result variables */
-        mysqli_stmt_bind_result($stmt, $login, $pass);
+        mysqli_stmt_bind_result($stmt, $login, $mail);
 
         $data = array();
 
         /* fetch values */
         while (mysqli_stmt_fetch($stmt)) {
-            $data[] = array("login" => $login);
+            $data[] = array("login" => $login, "mail" => $mail);
         }
 
 
