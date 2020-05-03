@@ -22,7 +22,7 @@ if (!isset($_SESSION)) {
 
     function change_mail(user) {
         var mail = prompt("Enter new mail");
-        fetch('/api/user/change_mail.php', {
+        fetch('http://api.local:8182/api/user/change_mail.php', {
                 method: 'POST',
                 credentials: 'include',
                 headers: {
@@ -43,7 +43,7 @@ if (!isset($_SESSION)) {
             })
     }
 
-    fetch('/api/user/', {
+    fetch('http://api.local:8182/api/user/', {
         credentials: 'include'
     })
         .then(response => response.json())
