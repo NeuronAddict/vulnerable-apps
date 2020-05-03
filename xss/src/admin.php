@@ -33,6 +33,7 @@ if (!isset($_SESSION)) {
         )
             .then(function () {
                 alert("mail changed !")
+                location.href = location.href
             })
             .catch(function () {
                 alert("erreur, see logs...");
