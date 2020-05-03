@@ -48,6 +48,7 @@ if(isset($_SESSION['user']) && $_SESSION['user']->isAdmin() && $_SERVER['REQUEST
             $conn->close();
 
             header('Content-Type: application/json');
+            add_cors_header();
             echo json_encode(array("success" => true));
 
         }
