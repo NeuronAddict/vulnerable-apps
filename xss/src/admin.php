@@ -25,6 +25,9 @@ if (!isset($_SESSION)) {
         fetch('/api/user/change_mail.php', {
                 method: 'POST',
                 credentials: 'include',
+                headers: {
+                        'Content-Type': 'application/json'
+                },
                 body: JSON.stringify({
                     "login": user,
                     "mail": mail
