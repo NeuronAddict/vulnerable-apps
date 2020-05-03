@@ -21,6 +21,14 @@ services:
     ports:
     - 127.0.0.1:8181:80
 
+  api:
+    build:
+      context: php
+    volumes:
+      - ./src:/var/www/html
+    ports:
+      - 127.0.0.1:8182:80
+
 volumes:
   mysql-log:
     driver: local
