@@ -12,11 +12,11 @@
 
 function add_cors_header() {
 
-    $mode = 2;
+    $mode = 3;
 
     switch ($mode) {
         case 1:
-            header('Access-Control-Allow-Origin: http://attacker.local:8181');
+            header('Access-Control-Allow-Origin: http://victim.local:8181');
             header('Access-Control-Allow-Credentials: true');
             break;
 
@@ -30,6 +30,12 @@ function add_cors_header() {
 
         case 3:
             header('Access-Control-Allow-Origin: *');
+            $headers = getallheaders();
+            if(isset($headers['Origin']) && $headers['Origin'] == 'http://victim.local:8181') {
+                header('Access-Control-Allow-Origin: http://victim.local:8181');
+                header('Access-Control-Allow-Credentials: true');
+            }
+
 
         case 0:
         default:
