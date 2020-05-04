@@ -18,6 +18,7 @@ function add_cors_header() {
         case 1:
             header('Access-Control-Allow-Origin: http://victim.local:8181');
             header('Access-Control-Allow-Credentials: true');
+            header('Access-Control-Max-Age: 0');
             break;
 
         case  2:
@@ -25,6 +26,7 @@ function add_cors_header() {
             if(isset($headers['Origin'])) {
                 header('Access-Control-Allow-Origin: '. $headers['Origin']);
                 header('Access-Control-Allow-Credentials: true');
+                header('Access-Control-Max-Age: 0');
             }
             break;
 
@@ -34,6 +36,7 @@ function add_cors_header() {
             if(isset($headers['Origin']) && $headers['Origin'] == 'http://victim.local:8181') {
                 header('Access-Control-Allow-Origin: http://victim.local:8181');
                 header('Access-Control-Allow-Credentials: true');
+                header('Access-Control-Max-Age: 0');
             }
 
 
