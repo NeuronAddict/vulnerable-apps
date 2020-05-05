@@ -8,7 +8,7 @@ if(!isset($_SESSION))
     session_start();
 }
 
-if($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+if($_SERVER['REQUEST_METHOD'] === 'OPTIONS' && $cors_mode != 0) {
     header ("Access-Control-Allow-Methods: POST, OPTIONS");
     header ("Access-Control-Allow-Headers: Content-Type");
     header('Access-Control-Max-Age: 0');
