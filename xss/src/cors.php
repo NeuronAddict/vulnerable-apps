@@ -8,13 +8,13 @@
  * 3: star cors headers
  */
 
-
+$cors_mode = 2;
 
 function add_cors_header() {
 
-    $mode = 3;
+    global $cors_mode;
 
-    switch ($mode) {
+    switch ($cors_mode) {
         case 1:
             header('Access-Control-Allow-Origin: http://victim.local:8181');
             header('Access-Control-Allow-Credentials: true');
