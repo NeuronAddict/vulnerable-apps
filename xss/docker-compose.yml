@@ -2,11 +2,11 @@ version: '2'
 
 services:
   mysql:
-    image: pyriand3r/i386-mysql:5.7
+    image: docker.io/bitnami/mariadb:11.2.2
     environment:
     - MYSQL_RANDOM_ROOT_PASSWORD=yes
-    - MYSQL_USER=mysql
-    - MYSQL_PASSWORD=mysql
+    - MYSQL_USER=${MYSQL_USER}
+    - MYSQL_PASSWORD=${MYSQL_PASSWORD}
     - MYSQL_DATABASE=db
     volumes:
     - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
