@@ -10,8 +10,8 @@ services:
     - MARIADB_PASSWORD=${MARIADB_PASSWORD}
     - MARIADB_DATABASE=db
     volumes:
-    - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
-    - ./mysql/conf.d:/etc/mysql/conf.d
+    - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d:ro
+    - ./mysql/conf.d:/etc/mysql/conf.d:ro
     - mysql-log:/var/log/mysql
     - ./src:/var/www/html
   web:
