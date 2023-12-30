@@ -4,7 +4,6 @@ services:
   mysql:
     image: docker.io/bitnami/mariadb:11.2.2
     environment:
-    - MYSQL_RANDOM_ROOT_PASSWORD=yes
     - MARIADB_ROOT_PASSWORD=${MARIADB_ROOT_PASSWORD}
     - MARIADB_USER=${MARIADB_USER}
     - MARIADB_PASSWORD=${MARIADB_PASSWORD}
