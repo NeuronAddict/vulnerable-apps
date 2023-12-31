@@ -14,16 +14,22 @@ services:
     - mysql-log:/var/log/mysql
   # https://docs.bitnami.com/tutorials/develop-http-api-php-containers/
   php:
-    image: docker.io/bitnami/php-fpm:8.2.14
+    build:
+      context: php
+    environment:
+      - MARIADB_HOST=mysql
+      - MARIADB_USER=${MARIADB_USER}
+      - MARIADB_PASSWORD=${MARIADB_PASSWORD}
+      - MARIADB_DATABASE=db
     volumes:
-      - ./src:/app
+      - ./php/src:/app:rw
   apache:
     image: docker.io/bitnami/apache:2.4.58
     ports:
       - "127.0.0.1:8181:8080"
     volumes:
       - ./apache-vhost/myapp.conf:/vhosts/myapp.conf:ro
-      - ./src:/app:ro
+      - ./php/src:/app:ro
     depends_on:
       - php
 

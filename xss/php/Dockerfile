@@ -1,14 +1,27 @@
-FROM php:apache
+FROM docker.io/bitnami/php-fpm:8.2.14 as composer
 
-RUN apt-get update && apt-get install -y iproute2
+ADD https://getcomposer.org/download/2.6.6/composer.phar composer.phar
 
-RUN docker-php-ext-install mysqli
+ADD src .
 
-RUN pecl channel-update pecl.php.net && pecl -q install xdebug && docker-php-ext-enable xdebug
+RUN php composer.phar install
 
-COPY trace.conf /etc/apache2/conf-enabled/trace.conf
-COPY php.ini $PHP_INI_DIR/php.ini
-COPY xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
+FROM docker.io/bitnami/php-fpm:8.2.14
 
-RUN echo "xdebug.remote_host="`/sbin/ip route|awk '/default/ { print $3 }'` >> /usr/local/etc/php/conf.d/xdebug.ini
+ADD src .
 
+ARG WRITABLE_DIRS="tmp logs"
+
+COPY --from=composer /app/vendor vendor/
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh \
+    && touch .env \
+    && chown 1001:0 .env \
+    && chmod 660 .env \
+    && cd /opt/bitnami/php \
+    && chown 1001:0 $WRITABLE_DIRS \
+    && chmod 775 $WRITABLE_DIRS
+
+USER 1001
+
+CMD [ "/entrypoint.sh" ]
