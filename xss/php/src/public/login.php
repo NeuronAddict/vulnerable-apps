@@ -18,8 +18,6 @@ if( isset($_REQUEST['login']) && $_REQUEST['pass']) {
             $pass = addslashes($pass);
         }
 
-
-
         $query = "SELECT login, pass FROM user WHERE login = '$login' AND pass = '$pass';";
 
         $stmt = mysqli_prepare($mysqli, $query);
@@ -53,13 +51,13 @@ if( isset($_REQUEST['login']) && $_REQUEST['pass']) {
 <body>
 
     <div>
-    
+        <?php if(!$_SESSION['logged']) { ?>
         <form method="post">
-            <label>Login:</label><input type="text" name="login" />
-            <label>Login:</label><input type="password" name="pass" />
+            <label>Login:</label><input  type="text" name="login" />
+            <label>Password:</label><input type="password" name="pass" />
             <input class="btn" type="submit" value="Login" />
         </form>
-    
+        <?php } ?>
     </div>
 
 </body>
