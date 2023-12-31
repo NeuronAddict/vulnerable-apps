@@ -1,5 +1,7 @@
 <?php
 
+require_once '../common.php';
+
 if(!isset($_SESSION))
 {
     session_start();
@@ -16,7 +18,7 @@ if( isset($_REQUEST['login']) && $_REQUEST['pass']) {
             $pass = addslashes($pass);
         }
 
-        $mysqli = mysqli_connect('mysql', 'mysql', 'mysql', 'db');
+
 
         $query = "SELECT login, pass FROM user WHERE login = '$login' AND pass = '$pass';";
 
