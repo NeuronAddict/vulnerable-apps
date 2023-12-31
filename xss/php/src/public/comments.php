@@ -1,10 +1,11 @@
 <?php
+
+require_once '../common.php';
+
 if(!isset($_SESSION))
 {
     session_start();
 }
-
-$mysqli = mysqli_connect('mysql', 'mysql', 'mysql', 'db');
 
 if( isset($_POST['name']) && isset($_POST['text'])) {
     $query = "INSERT INTO comments (name, text) VALUES (?,?)";
