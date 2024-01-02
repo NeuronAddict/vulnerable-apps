@@ -1,1 +1,1 @@
- GRANT FILE ON *.* TO 'mysql';
+ GRANT FILE ON *.* TO 'xss';
