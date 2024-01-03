@@ -9,15 +9,14 @@ services:
     - MARIADB_PASSWORD=${MARIADB_PASSWORD}
     - MARIADB_DATABASE=db
     volumes:
-    - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
-    - ./mysql/conf.d:/etc/mysql/conf.d
+    - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d:ro
+    - ./mariadb/conf.d/my_custom.cnf:/opt/bitnami/mariadb/conf/my_custom.cnf:ro
     - mysql-log:/var/log/mysql
-    - ./src:/var/www/html
   web:
     build: 
       context: php
     volumes:
-    - ./src:/var/www/html
+    - ./src:/var/www/html:ro
     ports:
     - "127.0.0.1:8181:80"
 
