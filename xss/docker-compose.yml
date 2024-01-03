@@ -12,13 +12,20 @@ services:
     - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d:ro
     - ./mariadb/conf.d/my_custom.cnf:/opt/bitnami/mariadb/conf/my_custom.cnf:ro
     - mysql-log:/var/log/mysql
-  web:
-    build: 
-      context: php
+  # https://docs.bitnami.com/tutorials/develop-http-api-php-containers/
+  php:
+    image: docker.io/bitnami/php-fpm:8.2.14
     volumes:
-    - ./src:/var/www/html:ro
+      - ./src:/app
+  apache:
+    image: docker.io/bitnami/apache:2.4.58
     ports:
-    - "127.0.0.1:8181:80"
+      - "127.0.0.1:8181:8080"
+    volumes:
+      - ./apache-vhost/myapp.conf:/vhosts/myapp.conf:ro
+      - ./src:/app:ro
+    depends_on:
+      - php
 
 volumes:
   mysql-log:
