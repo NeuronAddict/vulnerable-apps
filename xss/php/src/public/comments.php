@@ -46,12 +46,18 @@ mysqli_close($mysqli);
 <h5>Send a message to the community</h5>
 <div class="divider"></div>
 
-<?php echo $data; ?>
 
+<?php if($_SESSION['logged']) { ?>
+
+<?php echo $data; ?>
 <form method="post">
 <p><label>Name:</label> <input type="text" name="name"></p>
 <p><label>Message:</label> <input type="text" name="text"></p>
 <p><input type="submit" class="btn" value="Ok"></p>
 </form>
+<?php } else { ?>
 
+    <p class="blue col offset-s1">Please log in to show private comments</p>
+
+<?php } ?>
 
