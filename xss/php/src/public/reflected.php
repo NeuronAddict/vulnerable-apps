@@ -14,7 +14,7 @@
     </div>
     <p>This value is présent on GET[param] : <?php
         if (isset($_GET['param']))
-            echo $_GET['param'];
+        echo htmlspecialchars($_GET['param']);
 
         ?></p>
     

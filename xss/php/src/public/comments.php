@@ -29,7 +29,7 @@ if ($stmt) {
 
     /* fetch values */
     while (mysqli_stmt_fetch($stmt)) {
-        $data .= "<tr><td>$name</td><td>$text</td></tr>";
+        $data .= "<tr><td>" . htmlspecialchars($name) . "</td><td>" . htmlspecialchars($text) . "</td></tr>";
     }
     $data .= '</tbody></table>';
     /* close statement */
