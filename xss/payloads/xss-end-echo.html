@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+    <head>
+        <title>Merci</title>
+        <meta charset="UTF-8">
+    </head>
+
+    <body>
+
+        <script>
+            const thanks = [
+                "pour votre curiosité",
+                "pour vos questions",
+                "à jetbrains pour son excellent IDE",
+                "à OBS et ses développeurs",
+                "à kdenlive et ses développeurs",
+                "à tous ceux qui soutiennent la chaine",
+                "à tous ceux qui m'ont appris la sécurité (ça fait du monde)",
+                "mais j'ai l'impression qu'il est possible de poster un commentaire sans être loggé dans les exemples, non?"
+            ];
+
+            function delay(duration) {
+                return new Promise((resolve) => {
+                    setTimeout(resolve, duration);
+                });
+            }
+
+            async function run() {
+
+                for (let i = 0; i < thanks.length; i++) {
+                    console.log('Merci ' + thanks[i]);
+                    await delay(1500);
+                }
+            }
+
+            run();
+        </script>
+    </body>
+
+</html>
