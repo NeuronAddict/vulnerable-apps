@@ -22,7 +22,7 @@ services:
       - MARIADB_PASSWORD=${MARIADB_PASSWORD}
       - MARIADB_DATABASE=db
     volumes:
-      - ./php/src:/app/src/:ro
+      - ./php/src/public:/app/src/public/:ro
   apache:
     image: docker.io/bitnami/apache:2.4.58
     ports:

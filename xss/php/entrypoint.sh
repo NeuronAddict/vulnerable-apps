@@ -2,7 +2,7 @@
 
 set -ex
 
-cat << EOT > .env
+cat << EOT > /app/src/.env
 MARIADB_HOST=${MARIADB_HOST}
 MARIADB_USER=${MARIADB_USER}
 MARIADB_PASSWORD=${MARIADB_PASSWORD}

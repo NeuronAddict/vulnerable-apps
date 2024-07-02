@@ -12,9 +12,14 @@ RUN php composer.phar install
 
 FROM docker.io/bitnami/php-fpm:8.2.14
 
+WORKDIR /app/src/
+
 ARG WRITABLE_DIRS="tmp logs"
 
 COPY --from=composer /app/src/vendor/ src/vendor/
+COPY --from=composer /app/src/vendor/ /app/src/vendor/
+COPY src/public /app/src/public
+COPY src/common.php /app/src/common.php
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh \
     && touch .env \
