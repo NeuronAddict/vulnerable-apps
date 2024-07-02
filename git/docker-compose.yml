@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  server:
+    image: docker.io/bitnami/nginx:1.25
+    ports:
+      - "127.0.0.1:8080:8080"
+    volumes:
+      - ./server.conf:/opt/bitnami/nginx/conf/server_blocks/server.conf
+      - ./content:/usr/share/nginx/html
