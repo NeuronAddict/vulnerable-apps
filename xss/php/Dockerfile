@@ -16,7 +16,6 @@ WORKDIR /app/src/
 
 ARG WRITABLE_DIRS="tmp logs"
 
-COPY --from=composer /app/src/vendor/ src/vendor/
 COPY --from=composer /app/src/vendor/ /app/src/vendor/
 COPY src/public /app/src/public
 COPY src/common.php /app/src/common.php
